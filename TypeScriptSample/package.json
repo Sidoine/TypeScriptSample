@@ -1,0 +1,15 @@
+{
+  "name": "TypeScriptSample",
+  "version": "0.0.0",
+  "description": "TypeScriptSample",
+  "main": "app.js",
+  "author": {
+    "name": "Sidoine",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*"
+  }
+}
