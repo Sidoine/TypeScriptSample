@@ -11,6 +11,7 @@
     "express": "3.4.4",
     "jade": "*",
     "stylus": "*",
-    "knockout": "^3.1.0"
+    "knockout": "^3.1.0",
+    "mocha": "~1.18.2"
   }
 }

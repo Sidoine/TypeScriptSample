@@ -4,33 +4,51 @@
     clientCode?: string
 }
 
-class Individual {
-    firstName: string
-    lastName: string
+export enum Sex {
+    Male,
+    Female
 }
 
-class Form {
-    fieldLabels: Array<string>
-
-    constructor(labels: string) {
-        this.fieldLabels = labels.split(',');
+export class Individual {
+    sex: Sex
+    constructor(public firstName: string, public lastName: string) {
     }
 }
 
-class IndividualForm {
-    appraiser: Individual
-    appraisee: Individual
-    form: Form
-    fieldValues: Array<string>
+export class Node {
+    name: string
+    type: string
+    id: number
+    main: boolean
 }
 
-function createRandomIndividual(): { firstName: string; lastName: string } {
-    return {
-        firstName: "First" + Math.floor(Math.random() * 100),
-        lastName: "Last" + Math.floor(Math.random() * 100)
+export class Team extends Node {
+    manager: Individual
+}
+
+export interface TeamMember {
+    team: Node
+}
+
+export class Employee extends Individual implements TeamMember, NodeQuery {
+    team: Node
+    organizations: Node[] = new Array<Node>();
+
+    getNode(x: string): Node;
+    getNode(x: number): Node
+    getNode(x): Node {
+        if (typeof x == "string")
+            return this.organizations.filter(team => team.name == x)[0];
+        else
+            return this.organizations.filter(team => team.id == x)[0];
+    }
+
+    getNodesByType(type: string): Node[] {
+        return this.organizations.filter(team => team.type == type);
     }
 }
 
-var random: IIndividual = createRandomIndividual();
-var form = new Form('a,b,c');
-
+export interface NodeQuery {
+    getNodesByType(type: "team"): Team[];
+    getNodesByType(type: string): Node[];
+}

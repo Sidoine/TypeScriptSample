@@ -3,6 +3,7 @@ import routes = require('./routes/index');
 import user = require('./routes/user');
 import http = require('http');
 import path = require('path');
+import indivudal = require('individual');
 
 var app = express();
 

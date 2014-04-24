@@ -34,7 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="individual.ts" />
+    <TypeScriptCompile Include="individual.ts">
+      <TestFramework>
+      </TestFramework>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\index.ts" />
     <TypeScriptCompile Include="routes\user.ts" />
     <TypeScriptCompile Include="Scripts\typings\express\express.d.ts" />
@@ -45,11 +48,16 @@
     <Content Include="README.md" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\mocha\mocha.d.ts" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <TypeScriptCompile Include="public\javascripts\views\index.ts" />
+    <TypeScriptCompile Include="test\test-individual.ts">
+      <TestFramework>Default</TestFramework>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="test\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
@@ -61,6 +69,7 @@
     <Folder Include="Scripts\typings\express\" />
     <Folder Include="Scripts\typings\jquery\" />
     <Folder Include="Scripts\typings\knockout\" />
+    <Folder Include="Scripts\typings\mocha\" />
     <Folder Include="Scripts\typings\node\" />
     <Folder Include="Scripts\typings\stylus\" />
     <Folder Include="views\" />
